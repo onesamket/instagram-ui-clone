@@ -1,46 +1,59 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { FontAwesome5, Ionicons } from '@expo/vector-icons';
+import EditScreenInfo from 'components/edit-screen-info';
 import { Link, Tabs } from 'expo-router';
-import { Pressable, StyleSheet } from 'react-native';
-
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={styles.tabBarIcon} {...props} />;
-}
+import { Button, StyleSheet, Text } from 'react-native';
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: 'black',
+        tabBarActiveTintColor: '#3788de',
+
+        tabBarInactiveTintColor: '#18191a',
       }}>
       <Tabs.Screen
-        name="index"
+        name="(home)/index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color="gray"
-                    style={[styles.headerRight, { opacity: pressed ? 0.5 : 1 }]}
-                  />
-                )}
-              </Pressable>
-            </Link>
+          title: '',
+          tabBarIcon: ({ size, color }) => (
+            <Ionicons color={color} size={size} name="home-outline" />
           ),
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="(search)/index"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: '',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="search-outline" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="(real)/index"
+        options={{
+          title: '',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="add-circle-outline" size={size + 4} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="(message)/index"
+        options={{
+          title: '',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="chatbox-outline" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="(profile)/index"
+        options={{
+          title: '',
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome5 name="user-circle" size={size} color={color} />
+          ),
         }}
       />
     </Tabs>
