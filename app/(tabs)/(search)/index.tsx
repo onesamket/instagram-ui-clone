@@ -1,12 +1,10 @@
-import { View, Text } from 'react-native';
-import React from 'react';
+import ImageComponent from 'components/Profile/search/card';
+import { ScrollView } from 'react-native';
 
 const SearchPage = () => {
-  return (
-    <View>
-      <Text>SearchPage</Text>
-    </View>
-  );
+  <ScrollView>
+    <ImageComponent />
+  </ScrollView>;
 };
 
 export default SearchPage;

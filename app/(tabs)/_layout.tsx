@@ -1,6 +1,7 @@
 import { FontAwesome5, Ionicons } from '@expo/vector-icons';
 import HeaderLeft from 'components/Profile/HeaderLeft';
 import HeaderRight from 'components/Profile/HeaderRight';
+import SearchInput from 'components/Profile/search/SearchInput';
 import EditScreenInfo from 'components/edit-screen-info';
 import { Link, Tabs } from 'expo-router';
 import { Button, StyleSheet, Text } from 'react-native';
@@ -28,6 +29,7 @@ export default function TabLayout() {
         name="(search)/index"
         options={{
           title: '',
+          headerLeft: () => <SearchInput />,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="search-outline" size={size} color={color} />
           ),
