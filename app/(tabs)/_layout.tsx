@@ -1,4 +1,6 @@
 import { FontAwesome5, Ionicons } from '@expo/vector-icons';
+import HeaderLeft from 'components/Profile/HeaderLeft';
+import HeaderRight from 'components/Profile/HeaderRight';
 import EditScreenInfo from 'components/edit-screen-info';
 import { Link, Tabs } from 'expo-router';
 import { Button, StyleSheet, Text } from 'react-native';
@@ -15,6 +17,8 @@ export default function TabLayout() {
         name="(home)/index"
         options={{
           title: '',
+          headerLeft: () => <Text className="mx-4 font-bold text-xl">Instagram</Text>,
+          headerRight: () => <HeaderRight />,
           tabBarIcon: ({ size, color }) => (
             <Ionicons color={color} size={size} name="home-outline" />
           ),
@@ -50,6 +54,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="(profile)/index"
         options={{
+          headerLeft: () => <HeaderLeft />,
+          headerRight: () => <HeaderRight />,
           title: '',
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="user-circle" size={size} color={color} />
